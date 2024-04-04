@@ -13,7 +13,7 @@ const Persons=({ persons }) => {
     //skip option parameter run the useQuery as per true condition
     //useLazyQuery instead also
   })
-  console.log(result)
+
   if( nameToSearch && result.data){
     return <Person person={result.data.findPerson}
       handleClose={() => setNameToSearch(null)} />
