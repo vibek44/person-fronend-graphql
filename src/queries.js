@@ -22,3 +22,35 @@ export const FIND_PERSON = gql`
     }
   }
 `
+export const CREATE_PERSON = gql`
+mutation createPerson($name: String!, $phone: String, $street: String!, $city: String!) {
+  addPerson(
+    name: $name,
+    street: $street,
+    city: $city,
+    phone: $phone
+  ) {
+    name
+    phone
+    id
+    address {
+      street
+      city
+    }
+  }
+}
+`
+
+export const EDIT_NUMBER = gql`
+  mutation editNumber($name: String!, $phone: String!) {
+    editPerson(name: $name, phone: $phone) {
+      name
+      phone
+      address {
+        street
+        city
+      }
+      id
+    }
+  }
+`
