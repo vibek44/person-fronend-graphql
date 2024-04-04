@@ -17,6 +17,10 @@ const PersonForm = ({handleNotify}) => {
 
   const submit = (event) => {
     event.preventDefault()
+    if( !(name && street && city)){
+      handleNotify('name,street or address is missing')
+      return
+    }
     createPerson({  variables: { name, phone, street, city } })
     setName('')
     setPhone('')
@@ -26,7 +30,7 @@ const PersonForm = ({handleNotify}) => {
 
   return (
     <div>
-      <h2>create new</h2>
+      <h2>Add person</h2>
       <form onSubmit={submit}>
         <div>
           name: <input value={name}
